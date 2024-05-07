@@ -1,4 +1,3 @@
-// Globale Variable, um alle Coins zu speichern
 let allCoins = [];
 
 // Funktion, um Daten von der CoinGecko API zu abfragen und anzuzeigen

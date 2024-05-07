@@ -1,9 +1,27 @@
 /* Grundlegendes Reset, um Konsistenz über verschiedene Browser hinweg zu gewährleisten */
  
 
+#sort-desc{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333; 
+}
 
+#sort-asc{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    
+   
+}
 
-
+#search{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+   
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f7f6;
