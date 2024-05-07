@@ -1,0 +1,85 @@
+/* Grundlegendes Reset, um Konsistenz über verschiedene Browser hinweg zu gewährleisten */
+ 
+
+
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container für die Crypto-Daten */
+#crypto-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Stil für das Coin-Element */
+.coin {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Stil für das Bild */
+.coin img {
+    border-radius: 50%;
+    margin-right: 20px;
+    flex-shrink: 0; /* Verhindert, dass das Bild skaliert wird */
+}
+
+/* Stil für den Text */
+.coin h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.coin p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Hover-Effekt für die gesamte Coin-Box */
+.coin:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Stil für den Preis */
+.price {
+    background: #eaf8e6;
+    padding: 5px 15px;
+    border-radius: 5px;
+    color: #34a853;
+    font-weight: bold;
+}
+
+/* Responsive Design: Stacks the flex items on small screens */
+@media (max-width: 600px) {
+    .coin {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .coin img {
+        margin-bottom: 10px;
+    }
+}
