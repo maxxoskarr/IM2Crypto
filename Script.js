@@ -1,3 +1,6 @@
+// Globale Variable, um alle Coins zu speichern
+let allCoins = [];
+
 // Funktion, um Daten von der CoinGecko API zu abfragen und anzuzeigen
 async function fetchCoinsData() {
     const searchUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
@@ -48,21 +51,35 @@ function displayCoins(coins) {
     });
 }
 
-// Funktion zum Filtern und Anzeigen von Coins basierend auf dem eingegebenen Namen
-function filterCoinsByName(name) {
-    const filteredCoins = allCoins.filter(coin => 
-        coin.name.toLowerCase().includes(name.toLowerCase())
-    );
-    displayCoins(filteredCoins); // Zeigt die gefilterten Coins an
+// Funktion zum Sortieren der Coins nach Preis
+function sortCoinsByPrice(direction = 'ascending') {
+    const sortedCoins = [...allCoins].sort((a, b) => {
+        if (direction === 'ascending') {
+            return a.current_price - b.current_price;
+        } else {
+            return b.current_price - a.current_price;
+        }
+    });
+    displayCoins(sortedCoins);
 }
 
 // Event-Listener für das Suchfeld hinzufügen
 document.getElementById('coin-search').addEventListener('input', (e) => {
-    filterCoinsByName(e.target.value);
+    const filteredCoins = allCoins.filter(coin => 
+        coin.name.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+    displayCoins(filteredCoins);
+});
+
+// Event-Listeners für Sortierbuttons hinzufügen
+document.getElementById('sort-asc').addEventListener('click', () => {
+    sortCoinsByPrice('ascending');
+});
+
+document.getElementById('sort-desc').addEventListener('click', () => {
+    sortCoinsByPrice('descending');
 });
 
 // Starten des API-Aufrufs, um die Daten beim Laden der Seite zu laden
 fetchCoinsData();
-
-let allCoins = [];
 
