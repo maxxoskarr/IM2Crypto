@@ -1,5 +1,29 @@
 /* Grundlegendes Reset, um Konsistenz über verschiedene Browser hinweg zu gewährleisten */
  
+#title{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#filter{
+    text-align: right;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    color: #333;
+}
+h1{
+    color: #333;
+    font-size:75px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
 
 #sort-desc{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -14,17 +38,25 @@
     
    
 }
-
+#logo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5%; /* 20% der Seitengröße */
+    height: auto; /* Damit das Seitenverhältnis des Logos beibehalten wird */
+    z-index: 1000; /* Damit das Logo über anderen Elementen liegt */
+}
 #search{
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 8px;
-   
+  
+    color: #333;
 }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
+    background-color: #09b4f5;
     color: #333;
     line-height: 1.6;
     padding: 20px;
@@ -84,6 +116,8 @@ body {
     color: #34a853;
     font-weight: bold;
 }
+
+
 
 /* Responsive Design: Stacks the flex items on small screens */
 @media (max-width: 600px) {
