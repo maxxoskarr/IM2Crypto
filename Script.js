@@ -1,16 +1,15 @@
-// Globale Variable, um alle Coins zu speichern
-// Funktion, um Daten von der CoinGecko API zu abfragen
-function fetchCoinsData() {
-    const searchUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`;
+// Funktion, um Daten von der CoinGecko API zu abfragen und anzuzeigen
+async function fetchCoinsData() {
+    const searchUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
 
-    fetch(searchUrl)
-        .then(response => response.json())
-        .then(coins => {
-            displayCoins(coins);
-        })
-        .catch(error => {
-            console.error('Fehler beim Abrufen der CoinGecko-Daten:', error);
-        });
+    try {
+        const response = await fetch(searchUrl);
+        const coins = await response.json();
+        allCoins = coins; // Speichert die abgerufenen Coins in der globalen Variable
+        displayCoins(coins); // Zeigt alle Coins an
+    } catch (error) {
+        console.error('Fehler beim Abrufen der CoinGecko-Daten:', error);
+    }
 }
 
 // Funktion, um die Coins im DOM anzuzeigen
@@ -49,40 +48,12 @@ function displayCoins(coins) {
     });
 }
 
-// Aufruf der Funktion, um die Daten zu laden
-fetchCoinsData();
-
-let allCoins = [];
-
-// Funktion, um Daten von der CoinGecko API zu abfragen und anzuzeigen
-function fetchCoinsData() {
-    const searchUrl = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
-
-    fetch(searchUrl)
-        .then(response => response.json())
-        .then(coins => {
-            allCoins = coins; // Speichert die abgerufenen Coins in der globalen Variable
-            displayCoins(coins); // Zeigt alle Coins an
-        })
-        .catch(error => {
-            console.error('Fehler beim Abrufen der CoinGecko-Daten:', error);
-        });
-}
-
 // Funktion zum Filtern und Anzeigen von Coins basierend auf dem eingegebenen Namen
 function filterCoinsByName(name) {
-    // Verwende .filter(), um nur die Coins zu erhalten, die den eingegebenen Namen enthalten
     const filteredCoins = allCoins.filter(coin => 
         coin.name.toLowerCase().includes(name.toLowerCase())
     );
     displayCoins(filteredCoins); // Zeigt die gefilterten Coins an
-}
-
-// Funktion, um die Coins im DOM anzuzeigen
-function displayCoins(coins) {
-    // ...
-    // (dein Code zum Anzeigen der Coins, wie bereits vorher definiert)
-    // ...
 }
 
 // Event-Listener für das Suchfeld hinzufügen
@@ -92,3 +63,6 @@ document.getElementById('coin-search').addEventListener('input', (e) => {
 
 // Starten des API-Aufrufs, um die Daten beim Laden der Seite zu laden
 fetchCoinsData();
+
+let allCoins = [];
+
