@@ -62,7 +62,7 @@ function sortCoinsByPrice(direction = 'ascending') {
     displayCoins(sortedCoins);
 }
 
-// Event-Listener für das Suchfeld hinzufügen
+// Event-Listener für das Suchfeld hinzufügen 
 document.getElementById('coin-search').addEventListener('input', (e) => {
     const filteredCoins = allCoins.filter(coin => 
         coin.name.toLowerCase().includes(e.target.value.toLowerCase())

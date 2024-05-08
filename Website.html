@@ -3,29 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>CoinGecko API-Demo</title>
-    <style>
-        
-        
-    </style>
+    
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <div id="logo">
-   <img src="bitcoinbuddyys.jpg">
-    </div>
-    <div id="Title">
+    <header class="header">
+        <div class="logo">
+            <a href="Website.html">
+                <img src="bitcoinbuddyys.jpg" alt="Logo bitcoinbuddyys">
+            </a>
+          <div id="Title">
     <h1>Crypto Coins Daily</h1>  
-   
    </div> 
-   <div id="search">
-       <input type="text" id="coin-search" placeholder="Suche nach Coin...">
- 
+   <nav>
+            <ul class="nav_links">
+                <li><a href="/team.html">team</a></li>
+                <li><a href="/kontakt.html">kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+      
+
+<div class="wrap">
+    <div class="search">
+       <input type="text" id="coin-search" class="searchTerm" placeholder="What are you looking for?">
+       <button type="submit" class="searchButton">
+         <i class="fa fa-search"></i>
+      </button>
     </div>
+
+ </div>
     <div id="filter">
     <button id="sort-asc">low to high</button>
     <button id="sort-desc">high to low</button>      
     </div>
 
+ </div>
+ 
+ 
+ 
+  
 <div id="crypto-container">
     <!-- Hier werden die Coins eingefügt -->
 </div>
