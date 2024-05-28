@@ -4,49 +4,24 @@
     <meta charset="UTF-8">
     <title>CoinGecko API-Demo</title>
     <link rel="stylesheet" href="style.css"> 
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .contact-form-container {
-            width: 60%; /* Anpassung der Breite des Formulars */
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        input, textarea {
-            width: 98%; /* fast die gesamte Breite des Formularcontainers */
-            margin-top: 8px;
-            padding: 15px; /* größeres Padding für bessere Lesbarkeit */
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px; /* größere Schrift für den Button */
-        }
-    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav_links">
-                <li><a href="/team.html">Team</a></li>
-                <li><a href="/kontakt.html">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="logo">
-        <img src="bitcoinbuddyys.jpg" alt="Bitcoin Buddys Logo">
-    </div>
-    <div id="Title">
-        <h1>Crypto Coins Daily</h1>  
-    </div>
+ <header class="header">
+            <div class="logo">
+                <a href="Website.html">
+                    <img src="bitcoinbuddyys.jpg" alt="Logo bitcoinbuddyys">
+                </a>
+            <div id="Title">
+            <h1>Crypto Coins Daily</h1>  
+           
+           </div>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="/team.html">team</a></li>
+                    <li><a href="/kontakt.html">kontakt</a></li>
+                </ul>
+            </nav>
+ </header>
     <!-- Beginn des Kontaktformulars -->
     <div class="contact-form-container">
         <form action="submit_form.php" method="POST">
