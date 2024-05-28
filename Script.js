@@ -13,42 +13,54 @@ async function fetchCoinsData() {
         console.error('Fehler beim Abrufen der CoinGecko-Daten:', error);
     }
 }
-
 // Funktion, um die Coins im DOM anzuzeigen
 function displayCoins(coins) {
     const container = document.getElementById('crypto-container');
     container.innerHTML = ''; // Container leeren für neue Inhalte
 
-    // Schleife durch jedes Coin-Objekt im Array
     coins.forEach(coin => {
-        // Erstellen der HTML-Elemente für jeden Coin
         const coinDiv = document.createElement('div');
         coinDiv.className = 'coin';
 
-        // Fügen des Coin-Bildes hinzu
         const img = document.createElement('img');
         img.src = coin.image;
         img.alt = coin.name;
-        img.width = 50; // Setze die gewünschte Bildgröße
+        img.width = 50;
         img.height = 50;
 
-        // Fügen des Namens hinzu
         const name = document.createElement('h2');
         name.textContent = coin.name;
 
-        // Fügen des Preises hinzu
         const price = document.createElement('p');
         price.textContent = `Kurs: $${coin.current_price.toFixed(2)}`;
 
-        // Zusammenbauen der Coin-Div
+        const details = document.createElement('div');
+        details.className = 'coin-details';
+
+        const marketCap = document.createElement('p');
+        marketCap.textContent = `Marktkapitalisierung: ${coin.market_cap.toLocaleString()} USD`;
+
+        const volume = document.createElement('p');
+        volume.textContent = `24h Volumen: ${coin.total_volume.toLocaleString()} USD`;
+
+        details.appendChild(marketCap);
+        details.appendChild(volume);
+
         coinDiv.appendChild(img);
         coinDiv.appendChild(name);
         coinDiv.appendChild(price);
+        coinDiv.appendChild(details);
 
-        // Füge das Coin-Div zum Container hinzu
         container.appendChild(coinDiv);
+
+        // Hinzufügen eines Klick-Event-Listeners, um Details anzuzeigen/zu verbergen
+        coinDiv.addEventListener('click', function() {
+            const detailsVisible = details.style.display === 'block';
+            details.style.display = detailsVisible ? 'none' : 'block';
+        });
     });
 }
+
 
 // Funktion zum Sortieren der Coins nach Preis
 function sortCoinsByPrice(direction = 'ascending') {
